@@ -164,7 +164,7 @@ const RegisterForm = () => {
                             The confirm password must match the password.
                         </p>
                     </div>
-                    <button className='dragonhunter-f8f8ff' disabled={!validUsername || !validPassword || !validConfirmPassword ? true : false}>Register</button>
+                    <button className={username && password && confirmPassword ? "dragonhunter-f8f8ff active-button" : "dragonhunter-f8f8ff"} disabled={!validUsername || !validPassword || !validConfirmPassword ? true : false}>Register</button>
                         <p>
                             <span className="wonderwold-f8f8ff">Already registered? <Link className='link' to="/login">Sign in</Link></span>
                         </p>
