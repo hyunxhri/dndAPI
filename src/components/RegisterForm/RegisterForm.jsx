@@ -89,77 +89,86 @@ const RegisterForm = () => {
                     </p>
                 </section>
             ) : (
-            <section>
+            <section className='flex-center login-register-section'>
                 <p className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                <h1>Register</h1>
-                <form onSubmit={handleRegister}>
-                    <span className={validUsername ? "valid" : "hide"}>
-                        <FaCheck/>
-                    </span>   
-                    <span className={validUsername || !username ? "hide" : "invalid"}>
-                        <FaTimes />
-                    </span>   
-                    <input
-                        type="text"
-                        ref={userRef}
-                        placeholder="Username"
-                        onChange= {(e) => setUsername(e.target.value)}
-                        aria-invalid = {validUsername ? false : true}
-                        aria-describedby= "usernameNote"
-                        onFocus= {() => setusernameFocus(true)}
-                        onBlur= {() => setusernameFocus(false)}
-                        required />
-                    <p id="usernameNote" className={userFocus && !validUsername ? "instructions" : "offscreen"}>
-                        <RiAlertFill />
-                        At least 3 characters. <br/>
-                        Only letters, numbers and underscores allowed.
-                    </p>
+                <form onSubmit={handleRegister} className='flex-center login-register-form'>
+                <h1 className="dragonhunter-f8f8ff">Register</h1>
+                    <div>
+                        <span className={validUsername ? "valid" : "hide"}>
+                            <FaCheck className="icon"/>
+                        </span>   
+                        <span className={validUsername || !username ? "hide" : "invalid"}>
+                            <FaTimes className="icon" />
+                        </span>   
+                        <input
+                            type="text"
+                            ref={userRef}
+                            placeholder="Username"
+                            className="wonderwold-f8f8ff"
+                            onChange= {(e) => setUsername(e.target.value)}
+                            aria-invalid = {validUsername ? false : true}
+                            aria-describedby= "usernameNote"
+                            onFocus= {() => setusernameFocus(true)}
+                            onBlur= {() => setusernameFocus(false)}
+                            required />
+                        <p id="usernameNote" className={userFocus && !validUsername ? "instructions" : "offscreen"}>
+                            <RiAlertFill />
+                            At least 3 characters. <br/>
+                            Only letters, numbers and underscores allowed.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <span className={validPassword ? "valid" : "hide"}>
+                            <FaCheck className="icon"/>
+                        </span>   
+                        <span className={validPassword || !password ? "hide" : "invalid"}>
+                            <FaTimes className="icon" />
+                        </span>
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className="wonderwold-f8f8ff"
+                            onChange= {(e) => setPassword(e.target.value)}
+                            aria-invalid = {validPassword ? false : true}
+                            aria-describedby= "passwordNote"
+                            onFocus= {() => setPasswordFocus(true)}
+                            onBlur= {() => setPasswordFocus(false)}
+                            required />   
+                        <p id="passwordNote" className={passwordFocus && !validPassword ? "instructions" : "offscreen"}>
+                            <RiAlertFill />
+                            At least 8 characters. <br/>
+                            Only letters, numbers and underscores allowed.
+                        </p>
+                    </div>
 
-                    <span className={validPassword ? "valid" : "hide"}>
-                        <FaCheck/>
-                    </span>   
-                    <span className={validPassword || !password ? "hide" : "invalid"}>
-                        <FaTimes />
-                    </span>
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        onChange= {(e) => setPassword(e.target.value)}
-                        aria-invalid = {validPassword ? false : true}
-                        aria-describedby= "passwordNote"
-                        onFocus= {() => setPasswordFocus(true)}
-                        onBlur= {() => setPasswordFocus(false)}
-                        required />   
-                    <p id="passwordNote" className={passwordFocus && !validPassword ? "instructions" : "offscreen"}>
-                        <RiAlertFill />
-                        At least 8 characters. <br/>
-                        Only letters, numbers and underscores allowed.
-                    </p>
-
-                    <span className={validConfirmPassword && confirmPassword ? "valid" : "hide"}>
-                        <FaCheck/>
-                    </span>   
-                    <span className={validConfirmPassword || !confirmPassword ? "hide" : "invalid"}>
-                        <FaTimes />
-                    </span>
-                    <input
-                        type="password"
-                        placeholder="Confirm password"
-                        onChange= {(e) => setConfirmPassword(e.target.value)}
-                        aria-invalid = {validConfirmPassword ? false : true}
-                        aria-describedby= "confirmPasswordNote"
-                        onFocus= {() => setConfirmPasswordFocus(true)}
-                        onBlur= {() => setConfirmPasswordFocus(false)}
-                        required />   
-                    <p id="confirmPasswordNote" className={confirmPasswordFocus && !validConfirmPassword ? "instructions" : "offscreen"}>
-                        <RiAlertFill />
-                        The confirm password must match the password.
-                    </p>
-                    <button disabled={!validUsername || !validPassword || !validConfirmPassword ? true : false}>Register</button>
+                    <div>
+                        <span className={validConfirmPassword && confirmPassword ? "valid" : "hide"}>
+                            <FaCheck className="icon" />
+                        </span>   
+                        <span className={validConfirmPassword || !confirmPassword ? "hide" : "invalid"}>
+                            <FaTimes className="icon" />
+                        </span>
+                        <input
+                            type="password"
+                            placeholder="Confirm password"
+                            className="wonderwold-f8f8ff"
+                            onChange= {(e) => setConfirmPassword(e.target.value)}
+                            aria-invalid = {validConfirmPassword ? false : true}
+                            aria-describedby= "confirmPasswordNote"
+                            onFocus= {() => setConfirmPasswordFocus(true)}
+                            onBlur= {() => setConfirmPasswordFocus(false)}
+                            required />   
+                        <p id="confirmPasswordNote" className={confirmPasswordFocus && !validConfirmPassword ? "instructions" : "offscreen"}>
+                            <RiAlertFill />
+                            The confirm password must match the password.
+                        </p>
+                    </div>
+                    <button className='dragonhunter-f8f8ff' disabled={!validUsername || !validPassword || !validConfirmPassword ? true : false}>Register</button>
+                        <p>
+                            <span className="wonderwold-f8f8ff">Already registered? <Link className='link' to="/login">Sign in</Link></span>
+                        </p>
                 </form>
-                <p>
-                    <span className="underFormText">Already registered? <Link to="/login">Sign in</Link></span>
-                </p>
             </section>
             )}
         </>

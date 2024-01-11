@@ -1,0 +1,119 @@
+@font-face {
+    font-family: "Dragon Hunter";
+    src: url(/src/assets/fonts/DragonHunter-9Ynxj.otf);
+}
+
+@font-face {
+font-family: "Wonderwold";
+src: url(/src/assets/fonts/WonderworldPersonalUseRegular-gxdo3.otf);
+}
+
+* {
+    margin:0;
+    padding:0;
+}
+
+.login-register-section{
+    height:100vh;
+    position:relative;
+}
+
+.login-register-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("/src/assets/imgs/register-wallpaper.jpg");
+    filter: brightness(0.4) grayscale(0.5); 
+    z-index: -1; /* Coloca el pseudoelemento detrás del contenido de la sección */
+}
+
+.login-register-form{
+    width:500px;
+    height: 500px;
+    background-color:#151414;
+    flex-direction: column;
+    background-image: url(/src/assets/imgs/smoke-decoration.png);
+    background-position: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.flex-center{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.login-register-form h1{
+    letter-spacing: 5px;
+    font-size:60px;
+    font-weight:400;
+    margin:15px;
+}
+
+.login-register-form input, button{
+    width:300px;
+    padding:15px;
+    background:transparent;
+    border-color:#F8F4FF;
+    margin: 5px;
+    border-radius:25px;
+    font-size:18px;
+}
+
+.login-register-form input:focus{
+    outline: 1px solid #F8F8FF;
+    border: 2px dotted #F8F8FF;
+}
+
+.login-register-form button{
+    width:180px;
+    padding:10px;
+    margin:25px;
+    color: #555555;
+    border-style:solid;
+    border-color: #555555;
+}
+
+.login-register-form .active-button:hover{
+    background-color: #F8F4FF;
+    color: #151414;
+    border-style:outset;
+}
+
+.wonderwold-f8f8ff{
+    color: #F8F8FF;
+    font-family: "Wonderwold";
+}
+
+.dragonhunter-f8f8ff{
+    font-family: "Dragon Hunter";
+    color: #F8F8FF;
+}
+
+.login-register-form p {
+    font-size:18px;
+}
+
+.link{
+    text-decoration: none;
+    font-style: italic;
+    color: #F8F8FF
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+.errMsg{
+    width:300px;
+    text-align: center;
+    color: #f8f8ff;
+    font-family: "Dragon Hunter";
+    background: red;
+    padding: 10px;
+    margin-top:20px;
+    border-radius: 5px;
+}
