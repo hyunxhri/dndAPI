@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './LoginForm.css'
 import { Link } from 'react-router-dom'
+import LandingPage from "../LadingPage/LandingPage"
 
 const LoginForm = () => {
 
@@ -39,10 +40,7 @@ const LoginForm = () => {
     <>
       {success ? (
           <section>
-              <h3>You have been logged</h3>
-              <p>
-                  <Link to="/">Home</Link>
-              </p>
+              <LandingPage/>
           </section>
       ) : (
         <section className='flex-center login-register-section'>

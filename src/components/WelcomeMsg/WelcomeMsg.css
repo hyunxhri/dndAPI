@@ -1,0 +1,45 @@
+.w100flexcentered{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    position: relative;
+}
+
+article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(/src/assets/imgs/landingpage-wallpaper.png);
+    transform: scale(1);
+    background-size: cover;
+    filter: grayscale(1) brightness(0.5) contrast(1.2);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.information-msg{
+    width:50%;
+    padding:35px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    color: #f8f8ff;
+}
+
+.title-info{
+    font-size:35px;
+}
+
+.information-msg hr{
+    margin:15px 0;
+}
+
+.info{
+    letter-spacing: 1px;
+}

@@ -17,6 +17,19 @@
     border-radius:5px;
 }
 
+.invalid {
+    color: red;
+}
+
+.valid{
+    color: white;
+}
+
 .login-register-form .icon{
     margin-bottom:-1px;
+}
+
+p.errMsg{
+    width:350px;
+    margin-top: 15px;
 }

@@ -3,6 +3,7 @@ import { RiAlertFill } from "react-icons/ri";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import LoginForm from "../LoginForm/LoginForm"
 
 const RegisterForm = () => {
 
@@ -82,15 +83,9 @@ const RegisterForm = () => {
     return (
         <>
             {success ? (
-                <section>
-                    <h3>You have been registered</h3>
-                    <p>
-                        <Link to="/login">Sign in</Link>
-                    </p>
-                </section>
+                <LoginForm/>
             ) : (
             <section className='flex-center login-register-section'>
-                <p className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                 <form onSubmit={handleRegister} className='flex-center login-register-form'>
                 <h1 className="dragonhunter-f8f8ff">Register</h1>
                     <div>
@@ -164,6 +159,7 @@ const RegisterForm = () => {
                             The confirm password must match the password.
                         </p>
                     </div>
+                    <p className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <button className={username && password && confirmPassword ? "dragonhunter-f8f8ff active-button" : "dragonhunter-f8f8ff"} disabled={!validUsername || !validPassword || !validConfirmPassword ? true : false}>Register</button>
                         <p>
                             <span className="wonderwold-f8f8ff">Already registered? <Link className='link' to="/login">Sign in</Link></span>
