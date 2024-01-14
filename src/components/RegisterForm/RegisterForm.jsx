@@ -89,10 +89,10 @@ const RegisterForm = () => {
                 <form onSubmit={handleRegister} className='flex-center login-register-form'>
                 <h1 className="dragonhunter-f8f8ff">Register</h1>
                     <div>
-                        <span className={validUsername ? "valid" : "hide"}>
+                        <span className={validUsername ? "valid" : "offscreen"}>
                             <FaCheck className="icon"/>
                         </span>   
-                        <span className={validUsername || !username ? "hide" : "invalid"}>
+                        <span className={validUsername || !username ? "offscreen" : "invalid"}>
                             <FaTimes className="icon" />
                         </span>   
                         <input
@@ -114,10 +114,10 @@ const RegisterForm = () => {
                     </div>
                     
                     <div>
-                        <span className={validPassword ? "valid" : "hide"}>
+                        <span className={validPassword ? "valid" : "offscreen"}>
                             <FaCheck className="icon"/>
                         </span>   
-                        <span className={validPassword || !password ? "hide" : "invalid"}>
+                        <span className={validPassword || !password ? "offscreen" : "invalid"}>
                             <FaTimes className="icon" />
                         </span>
                         <input
@@ -138,10 +138,10 @@ const RegisterForm = () => {
                     </div>
 
                     <div>
-                        <span className={validConfirmPassword && confirmPassword ? "valid" : "hide"}>
+                        <span className={validConfirmPassword && confirmPassword ? "valid" : "offscreen"}>
                             <FaCheck className="icon" />
                         </span>   
-                        <span className={validConfirmPassword || !confirmPassword ? "hide" : "invalid"}>
+                        <span className={validConfirmPassword || !confirmPassword ? "offscreen" : "invalid"}>
                             <FaTimes className="icon" />
                         </span>
                         <input
