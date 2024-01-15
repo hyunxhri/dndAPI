@@ -1,3 +1,7 @@
+form.height-620{
+    height:620px;
+}
+
 .offscreen{
     display:none;
 }
@@ -11,6 +15,16 @@
     border:1px solid rgba(255, 255, 255, 0.5);
     padding:10px;
     border-radius:5px;
+}
+
+
+.login-register-form select{
+    width: 335px;
+    border: 2px solid;
+}
+
+.login-register-form select option{
+    color:#000;
 }
 
 .invalid {

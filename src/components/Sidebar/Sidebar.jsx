@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import "./Sidebar.css"
-import { GiFireSpellCast, GiElfEar, GiAxeSword, GiDiceTwentyFacesTwenty   } from "react-icons/gi";
+import { GiFireSpellCast, GiElfEar, GiAxeSword, GiDiceTwentyFacesTwenty, GiSpikedDragonHead   } from "react-icons/gi";
 
 const Sidebar = () => {
     return(
@@ -20,6 +20,10 @@ const Sidebar = () => {
               <GiFireSpellCast className="icon"/>
               <Link className='dragonhunter-f8f8ff' to="/spells">Spells</Link>
             </li>
+            <hr/>
+            <li>
+              <GiSpikedDragonHead className="icon"/>
+              <Link className='dragonhunter-f8f8ff' to="/profile">Profile</Link></li>
             <hr/>
             <li><Link className='dragonhunter-f8f8ff' to="/login">Login</Link></li>
             <li><Link className='dragonhunter-f8f8ff' to="/register">Register</Link></li>

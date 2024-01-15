@@ -17,22 +17,21 @@ const RegisterForm = () => {
     const [validUsername, setValidUsername] = useState(false)
     const [userFocus, setusernameFocus] = useState(false)
 
+    const [genre, setGenre] = useState('Masculine')
+    const [role, setRole] = useState('Master')
+
     const [password, setPassword] = useState('')
     const [validPassword, setValidPassword] = useState(false)
     const [passwordFocus, setPasswordFocus] = useState(false)
-
 
     const [confirmPassword, setConfirmPassword] = useState('')
     const [validConfirmPassword, setValidConfirmPassword] = useState(false)
     const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false)
 
+    const favs = []
+
     const [errMsg, setErrMsg] = useState('')
     const [success, setSuccess] = useState(false) 
-
-    useEffect(() => {
-        // The fields username is focused.
-        userRef.current.focus()
-        }, [])
 
     useEffect(() => {
         // Check if the username is valid.
@@ -70,7 +69,7 @@ const RegisterForm = () => {
         }
     
         // Update the users registered.
-        const newUsers = [...usersRegistered, { username, password }]
+        const newUsers = [...usersRegistered, { username, password, genre, role, favs }]
     
         localStorage.setItem('Users', JSON.stringify(newUsers))
         // Clear the username and the password.
@@ -86,7 +85,7 @@ const RegisterForm = () => {
                 <LoginForm/>
             ) : (
             <section className='flex-center login-register-section'>
-                <form onSubmit={handleRegister} className='flex-center login-register-form'>
+                <form onSubmit={handleRegister} className='flex-center login-register-form height-620'>
                 <h1 className="dragonhunter-f8f8ff">Register</h1>
                     <div>
                         <span className={validUsername ? "valid" : "offscreen"}>
@@ -99,7 +98,7 @@ const RegisterForm = () => {
                             type="text"
                             ref={userRef}
                             placeholder="Username"
-                            className="wonderwold-f8f8ff"
+                            className="tnw-f8f8ff"
                             onChange= {(e) => setUsername(e.target.value)}
                             aria-invalid = {validUsername ? false : true}
                             aria-describedby= "usernameNote"
@@ -112,6 +111,26 @@ const RegisterForm = () => {
                             Only letters, numbers and underscores allowed.
                         </p>
                     </div>
+                    <select 
+                        className="tnw-f8f8ff"
+                        id="genre"
+                        onChange= {(e) => setGenre(e.target.value)}
+                        name="genre"
+                        required>
+                            <option value="masculine">Masculine</option>
+                            <option value="femenine">Femenine</option>
+                            <option value="Other">Other</option>
+                    </select>
+                    <select
+                        className="tnw-f8f8ff"
+                        id="role"
+                        onChange= {(e) => setRole(e.target.value)}
+                        name="role"
+                        required>
+                            <option value="master">Master</option>
+                            <option value="player">Player</option>
+                            <option value="masterplayer">Master y player</option>
+                    </select>
                     
                     <div>
                         <span className={validPassword ? "valid" : "offscreen"}>
@@ -123,7 +142,7 @@ const RegisterForm = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            className="wonderwold-f8f8ff"
+                            className="tnw-f8f8ff"
                             onChange= {(e) => setPassword(e.target.value)}
                             aria-invalid = {validPassword ? false : true}
                             aria-describedby= "passwordNote"
@@ -147,7 +166,7 @@ const RegisterForm = () => {
                         <input
                             type="password"
                             placeholder="Confirm password"
-                            className="wonderwold-f8f8ff"
+                            className="tnw-f8f8ff"
                             onChange= {(e) => setConfirmPassword(e.target.value)}
                             aria-invalid = {validConfirmPassword ? false : true}
                             aria-describedby= "confirmPasswordNote"
@@ -162,8 +181,10 @@ const RegisterForm = () => {
                     <p className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <button className={username && password && confirmPassword ? "dragonhunter-f8f8ff active-button" : "dragonhunter-f8f8ff"} disabled={!validUsername || !validPassword || !validConfirmPassword ? true : false}>Register</button>
                         <p>
-                            <span className="wonderwold-f8f8ff">Already registered? <Link className='link' to="/login">Sign in</Link></span>
+                            <span className="tnw-f8f8ff">Already registered? <Link className='link' to="/login">Sign in</Link></span>
                         </p>
+                        <p><Link className='link tnw-f8f8ff' to="/">Back to index</Link></p>
+
                 </form>
             </section>
             )}

@@ -145,7 +145,7 @@ const ClassRaces = ( { endpoint } ) => {
                       </tbody>
                     </table> 
                     </>
-                  ) : itemDetails.endpoint === 'races' ? (
+                  ) : endpoint === 'races' ? (
                     <>
                       {/*If endpoints is races*/}
                       {<h3> -- Size : {itemDetails.size} / Speed : {itemDetails.speed} -- </h3>}
@@ -189,13 +189,38 @@ const ClassRaces = ( { endpoint } ) => {
                   ) : (
                     <>
                       {/*If endpoints is spells*/}
+                      <ul>
+                        {itemDetails.attack_type && <li>{itemDetails.attack_type}</li>}
+                        {itemDetails.range && <li>{itemDetails.range}</li>}
+                        {itemDetails.casting_time && <li>Casting time : {itemDetails.casting_time}</li>}
+                        {itemDetails.damage && itemDetails.damage.damage_type && <li>Damage type : {itemDetails.damage.damage_type.name}</li>}
+                        {itemDetails.duration && <li>Duration : {itemDetails.duration}</li>}
+                        {itemDetails.ritual && <li>Ritual</li>}
+                        {itemDetails.school && <li>School: {itemDetails.school.name}</li>}
 
+
+                      </ul>
+                      <p>{itemDetails.desc}</p>
+                      {itemDetails.higher_level.length > 0 && <p>{itemDetails.higher_level}</p>}
+                      <h3>Components:</h3>
+                      <table>
+                        <tbody>
+                          <tr>
+                          {itemDetails.components.map((component, index) => (
+                              <td key={index} className='components'>{component}</td>
+                          ))}
+                          </tr>
+                        </tbody>
+                      </table>
+                      {createSimpleCategoryTable('classes')}
+                      {itemDetails.subclasses.length > 1 && createSimpleCategoryTable('subclasses')}
                     </>
                   )}
                   
                 </div>
                   {itemDetails.spells && <button>Spells by class</button>}
-                  <button onClick={closeModal}>Cerrar</button>
+                  {endpoint === "spells" && <button>Add To favs</button>}
+                  <button onClick={closeModal}>Close</button>
               </article>
             )}
         </section>

@@ -115,6 +115,19 @@ section{
     }
 }
 
+.modal li {
+    display: inline-block;
+    margin: 0 15px;
+    font-family: 'Dragon Hunter';
+    font-weight: 600;
+}
+
+.modal td.components {
+    width:100px;
+    width: 100px;
+    text-align: center;
+}
+
 
 .modal table, .modal th, .modal td {
     width: 98%;

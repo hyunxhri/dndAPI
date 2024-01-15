@@ -32,6 +32,7 @@ const LoginForm = () => {
     }
     setUsername('')
     setPassword('')
+    localStorage.setItem('UserLogged', JSON.stringify(userExist))
     setSuccess(true)
   }
 
@@ -50,7 +51,7 @@ const LoginForm = () => {
                 <input 
                   type="text"
                   ref= {userRef}
-                  className="wonderwold-f8f8ff"
+                  className="tnw-f8f8ff"
                   placeholder="Username"
                   onChange = {(e) => setUsername(e.target.value)}
                   value= {username}
@@ -59,7 +60,7 @@ const LoginForm = () => {
             <div>
               <input 
                 type="password"
-                className="wonderwold-f8f8ff"
+                className="tnw-f8f8ff"
                 placeholder="Password"
                 onChange = {(e) => setPassword(e.target.value)}
                 value= {password}
@@ -68,8 +69,9 @@ const LoginForm = () => {
             <p className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <button className={username && password ? "dragonhunter-f8f8ff active-button" : "dragonhunter-f8f8ff"} disabled={!username || !password}>Log in</button>
             <p>
-              <span className="wonderwold-f8f8ff">Don't have an account? <Link className='link' to="/register">Register</Link></span>
+              <span className="tnw-f8f8ff">Don't have an account? <Link className='link' to="/register">Register</Link></span>
             </p>
+            <p><Link className='link tnw-f8f8ff' to="/">Back to index</Link></p>
           </form>
         </section>
       )}
