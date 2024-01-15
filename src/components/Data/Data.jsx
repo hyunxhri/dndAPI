@@ -1,6 +1,7 @@
 // ClassRaces.js
 import React, { useState } from 'react'
 import Sidebar from '../Sidebar/Sidebar'
+import Search from '../Search/Search'
 import DataFetching from '../Fetch/DataFetching'
 import DataDetailsFetching from '../Fetch/DataDetailsFetching'
 import ClassModal from '../Modals/ClassModal'
@@ -55,12 +56,12 @@ const Data = ({ endpoint }) => {
     <section>
       <Sidebar />
       <article className='gridautofill'>
-        {data.map((item) => (
-          <div key={item.index} className={endpoint !== "spells" ? 'class-item' : 'class-item class-item-spells'} onClick={() => openModal(item)}>
-            <h2 className='dragonhunter-f8f8ff'>{item.name}</h2>
-            {endpoint !== "spells" && <img src={images[item.name]} alt={`${item.name} image`} />}
-          </div>
-        ))}
+      {data.map((item) => (
+      <div key={item.index} className={endpoint !== "spells" ? 'class-item' : 'class-item class-item-spells'} onClick={() => openModal(item)}>
+        <h2 className='dragonhunter-f8f8ff'>{item.name}</h2>
+        {endpoint !== "spells" && <img src={images[item.name]} alt={`${item.name} image`} />}
+      </div>
+      ))}
       </article>
       <DataFetching endpoint={endpoint} setData={setData} setImages={setImages} setImagesByEndpoint={setImagesByEndpoint} />
       <DataDetailsFetching selectedItem={selectedItem} setItemDetails={setItemDetails} endpoint={endpoint} />

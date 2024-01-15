@@ -1,15 +1,15 @@
 // DataFetching.js
-import React, { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 const DataFetching = ({ endpoint, setData, setImages, setImagesByEndpoint }) => {
-  const BASIC_URL = 'https://www.dnd5eapi.co'
+  const BASIC_URL = 'https://www.dnd5eapi.co/api/'
 
   useEffect(() => {
     setData([])
     setImages({})
 
     const fetchData = () => {
-      fetch(`${BASIC_URL}/api/${endpoint}`)
+      fetch(`${BASIC_URL}${endpoint}`)
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`)

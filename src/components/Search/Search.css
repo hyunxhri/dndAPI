@@ -1,0 +1,23 @@
+article.gridautofill div.search{
+    display: initial;
+    grid-column-start: 1;
+    grid-column-end: -2;
+    width: 100%;
+
+    & input {
+        width:90%;
+        background: transparent;
+        color: #f8f8ff;
+        padding:15px;
+        border:2px solid #f8f8ff;
+        border-radius:25px;
+        font-family: 'Times New Roman';
+        font-size: 20px;
+
+        &:focus-visible{
+        outline: 1px solid #F8F8FF;
+        border: 2px dotted #F8F8FF;
+        }
+    }
+
+}
