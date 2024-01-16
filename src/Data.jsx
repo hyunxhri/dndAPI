@@ -19,7 +19,7 @@ const Data = ({ endpoint }) => {
   const setImagesByEndpoint = (data) => {
     const imageObj = {}
     data.forEach(item => {
-      imageObj[item.name] = `${path}/assets/imgs/${endpoint}/${item.name}.png`
+      imageObj[item.name] = `https://glittery-trifle-edb321.netlify.app/assets/imgs/${endpoint}/${item.name}.png`
     })
     setImages(imageObj)
   }
