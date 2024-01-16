@@ -6,6 +6,8 @@ import DataDetailsFetching from './components/Fetch/DataDetailsFetching'
 import ClassModal from './components/Modals/ClassModal'
 import RaceModal from './components/Modals/RaceModal'
 import SpellModal from './components/Modals/SpellModal'
+import path from "./env/env"
+
 import "./App.css"
 const Data = ({ endpoint }) => {
   const [data, setData] = useState([])
@@ -17,7 +19,7 @@ const Data = ({ endpoint }) => {
   const setImagesByEndpoint = (data) => {
     const imageObj = {}
     data.forEach(item => {
-      imageObj[item.name] = `${process.env.PUBLIC_PATH}/assets/imgs/${endpoint}/${item.name}.png`
+      imageObj[item.name] = `${path}/assets/imgs/${endpoint}/${item.name}.png`
     })
     setImages(imageObj)
   }

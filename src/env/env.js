@@ -1,0 +1,1 @@
+export const path =  import.meta.env.DEV ? process.env.VITE_PUBLIC_PATH : `https://glittery-trifle-edb321.netlify.app/` 
