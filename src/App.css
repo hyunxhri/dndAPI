@@ -172,7 +172,7 @@ article::before {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url(/src/assets/imgs/landingpage-wallpaper.png);
+    background-image: url(/public/assets/imgs/landingpage-wallpaper.png);
     transform: scale(1);
     background-size: cover;
     filter: grayscale(1) brightness(0.5) contrast(1.2);
