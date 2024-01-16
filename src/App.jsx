@@ -7,7 +7,6 @@ import Profile from './Profile'
 import LandingPage from './LandingPage'
 import Contact from './Contact'
 import updateUserLoggedInUsers from './updateUserLoggedInUsers'
-import { path } from './env/env'
 
 function App() {
 
@@ -18,8 +17,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={`${path}`} element={<LandingPage/>} />
-        <Route path={`${path}classes`} element={<Data endpoint="classes"/>}/>
+        <Route path="/" element={<LandingPage/>} />
+        <Route path="/classes" element={<Data endpoint="classes"/>}/>
         <Route path="/races" element={<Data endpoint="races"/>}/>
         <Route path="/spells" element={<SpellsPage endpoint="spells"/>} />
         <Route path="/spells/bard" element={<SpellsPage endpoint="classes/bard/spells"/>} />
