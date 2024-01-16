@@ -17,7 +17,7 @@ const Data = ({ endpoint }) => {
   const setImagesByEndpoint = (data) => {
     const imageObj = {}
     data.forEach(item => {
-      imageObj[item.name] = `./src/assets/imgs/${endpoint}/${item.name}.png`
+      imageObj[item.name] = `${process.env.PUBLIC_PATH}/assets/imgs/${endpoint}/${item.name}.png`
     })
     setImages(imageObj)
   }
