@@ -1,4 +1,4 @@
-article.gridautofill div.search{
+article div.search{
     display: initial;
     grid-column-start: 1;
     grid-column-end: -2;

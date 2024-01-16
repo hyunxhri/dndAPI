@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
 import "./Search.css"
 
-const Search = ({ onSearch }) => {
+const Search = ({ data, setSpellsFiltered, setCurrentPage }) => {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const handleSearch = (value) => {
-    setSearchTerm(value)
-    onSearch(value)
-  }
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm)
 
+    // Check if the name of the item has the search them in it.
+    const filtered = data.filter(item =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    setSpellsFiltered(filtered)
+
+    // Reset the number page when search.
+    setCurrentPage(1)
+  }
 
   return (
     <div className='search'>

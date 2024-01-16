@@ -39,6 +39,9 @@ section{
     }
 } 
 
+.no-padding{
+    padding:0;
+}
 
 .class-item h2{
     letter-spacing:5px;
@@ -201,6 +204,32 @@ p a{
     color:#f8f8ff;
 }
 
+.w100flexstart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+}
+
+.userInfoProfile{
+    align-self:start;
+    width: 100%;
+    text-align: center;
+    background: #400707;
+    padding: 20px 0;
+    margin-bottom:15px;
+}
+
+.userInfoProfile li{
+    width:150px;
+    padding: 15px;
+    color: #f8f8ff;
+    font-family: 'Dragon Hunter';
+    background: rgba(0,0,0,.5);
+    border-radius: 10px;
+    margin: 0 15px;
+    display: inline-block;
+}
 
 @media only screen and (min-width: 1400px){
     .gridautofill {

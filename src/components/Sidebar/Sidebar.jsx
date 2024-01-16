@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./Sidebar.css"
-import { GiFireSpellCast, GiElfEar, GiAxeSword, GiDiceTwentyFacesTwenty, GiSpikedDragonHead, GiSpellBook } from "react-icons/gi"
+import { GiFireSpellCast, GiElfEar, GiAxeSword, GiDiceTwentyFacesTwenty, GiSpikedDragonHead, GiSpellBook, GiDungeonGate } from "react-icons/gi"
 import updateUserLoggedInUsers from '../../updateUserLoggedInUsers'
 
 const Sidebar = () => {
@@ -24,6 +24,11 @@ const Sidebar = () => {
         <nav>
           <ul>
             <li>
+              <GiDungeonGate className="icon"/>
+              <Link className='dragonhunter-f8f8ff' to="/">Index</Link>
+            </li>
+            <hr/>
+            <li>
               <GiAxeSword className="icon"/>
               <Link className='dragonhunter-f8f8ff' to="/classes">Class</Link>
             </li>
@@ -40,7 +45,8 @@ const Sidebar = () => {
             ? (<>
                 <li>
                 <GiSpikedDragonHead className="icon"/>
-                <Link className='dragonhunter-f8f8ff' to="/profile">Profile</Link></li>
+                <Link className='dragonhunter-f8f8ff' to="/profile">Profile</Link>
+                </li>
                 <li>
                     <GiSpellBook className="icon"/>
                     <Link className='dragonhunter-f8f8ff' to="/contact">Contact us!</Link>

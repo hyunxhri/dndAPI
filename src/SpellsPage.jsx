@@ -6,12 +6,12 @@ import DataDetailsFetching from './components/Fetch/DataDetailsFetching'
 import SpellModal from './components/Modals/SpellModal'
 import PaginatedData from './components/PaginatedData/PaginatedData'
 
-const Data = ({ endpoint }) => {
-  const [data, setData] = useState([])
+const SpellsPage = ({ endpoint }) => {
+  const [spells, setSpells] = useState([])
   const [selectedItem, setSelectedItem] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [itemDetails, setItemDetails] = useState(null)
-  const [filteredData, setFilteredData] = useState([])  
+  const [spellsFiltered, setSpellsFiltered] = useState([])  
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
@@ -28,18 +28,6 @@ const Data = ({ endpoint }) => {
     setSelectedItem(null)
     setModalOpen(false)
     setItemDetails(null)
-  }
-
-  const handleSearch = (searchTerm) => {
-    // Check if the name of the item has the search them in it.
-    const filtered = data.filter(item =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    console.log(filtered)
-    setFilteredData(filtered)
-
-    // Reset the number page when search.
-    setCurrentPage(1)
   }
 
   const createSimpleCategoryTable = (property) => {
@@ -69,15 +57,11 @@ const Data = ({ endpoint }) => {
     <section>
       <Sidebar />
       <article className='gridautofill'>
-        <Search onSearch={handleSearch} />
-        { filteredData.length != 0 ?
-            <PaginatedData data={filteredData} itemsPerPage={28} renderItem={renderItem} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-        :
-            <PaginatedData data={data} itemsPerPage={28} renderItem={renderItem} currentPage={currentPage} setCurrentPage={setCurrentPage}/>  
-        }
+        <Search data={spells} setSpellsFiltered={setSpellsFiltered} setCurrentPage={setCurrentPage}/>
+        <PaginatedData data={spellsFiltered.length !== 0 ? spellsFiltered : spells} itemsPerPage={28} renderItem={renderItem} currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </article>
-      <DataFetching endpoint={endpoint} setData={setData} setImages={() => ''} setImagesByEndpoint={() => ''} />
-      <DataDetailsFetching selectedItem={selectedItem} setItemDetails={setItemDetails} endpoint={endpoint} />
+      <DataFetching endpoint={endpoint} setData={setSpells} setImages={() => ''} setImagesByEndpoint={() => ''} />
+      <DataDetailsFetching selectedItem={selectedItem} setItemDetails={setItemDetails} />
       {modalOpen && selectedItem && itemDetails && (
         <SpellModal selectedItem={selectedItem} itemDetails={itemDetails} closeModal={closeModal} createSimpleCategoryTable={createSimpleCategoryTable} />
       )}
@@ -85,4 +69,4 @@ const Data = ({ endpoint }) => {
   )
 }
 
-export default Data
+export default SpellsPage
