@@ -6,7 +6,6 @@ import DataDetailsFetching from './components/Fetch/DataDetailsFetching'
 import ClassModal from './components/Modals/ClassModal'
 import RaceModal from './components/Modals/RaceModal'
 import SpellModal from './components/Modals/SpellModal'
-import path from "./env/env"
 
 import "./App.css"
 const Data = ({ endpoint }) => {
