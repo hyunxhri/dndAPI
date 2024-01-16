@@ -10,5 +10,6 @@ div.pagination-buttons{
 
     & button {
         width: 45%;
+        cursor:pointer;
     }
 }

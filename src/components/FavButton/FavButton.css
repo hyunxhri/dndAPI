@@ -1,0 +1,9 @@
+.modal button:disabled{
+    color:#aaa;
+    border: 2px #aaa solid;
+}
+
+article.modal button.buttonIsFav{
+    background: #400707;
+    color: #f8f8ff;
+}

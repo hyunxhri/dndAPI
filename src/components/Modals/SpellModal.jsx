@@ -1,4 +1,5 @@
 import React from 'react'
+import FavButton from '../FavButton/FavButton'
 
 const SpellModal = ({ selectedItem, itemDetails, closeModal, createSimpleCategoryTable }) => {
   return (
@@ -31,7 +32,7 @@ const SpellModal = ({ selectedItem, itemDetails, closeModal, createSimpleCategor
           {createSimpleCategoryTable('classes')}
           {itemDetails.subclasses.length > 1 && createSimpleCategoryTable('subclasses')}
       </div>
-          <button>Add To favs</button>
+          <FavButton itemDetails={itemDetails} />
           <button onClick={closeModal}>Close</button>
     </article>
   )

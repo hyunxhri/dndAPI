@@ -110,10 +110,11 @@ section{
     color: #400707;
     border-color:#400707;
 
-    &:hover{
+    &:not(:disabled):hover{
         background: #400707;
         border-color: #f8f8ff;
         color: #f8f8ff;
+        cursor:pointer;
     }
 }
 
