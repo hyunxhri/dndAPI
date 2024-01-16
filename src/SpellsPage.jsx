@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from '../Sidebar/Sidebar'
-import Search from '../Search/Search'
-import DataFetching from '../Fetch/DataFetching'
-import DataDetailsFetching from '../Fetch/DataDetailsFetching'
-import SpellModal from '../Modals/SpellModal'
-import PaginatedData from '../PaginatedData/PaginatedData'
-import "../Data/Data.css"
+import Sidebar from './components/Sidebar/Sidebar'
+import Search from './components/Search/Search'
+import DataFetching from './components/Fetch/DataFetching'
+import DataDetailsFetching from './components/Fetch/DataDetailsFetching'
+import SpellModal from './components/Modals/SpellModal'
+import PaginatedData from './components/PaginatedData/PaginatedData'
 
 const Data = ({ endpoint }) => {
   const [data, setData] = useState([])

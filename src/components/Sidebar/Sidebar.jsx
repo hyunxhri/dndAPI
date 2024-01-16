@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./Sidebar.css"
-import { GiFireSpellCast, GiElfEar, GiAxeSword, GiDiceTwentyFacesTwenty, GiSpikedDragonHead   } from "react-icons/gi";
+import { GiFireSpellCast, GiElfEar, GiAxeSword, GiDiceTwentyFacesTwenty, GiSpikedDragonHead, GiSpellBook } from "react-icons/gi"
+import updateUserLoggedInUsers from '../../updateUserLoggedInUsers'
 
 const Sidebar = () => {
   const [isUserLogged, setIsUserLogged] = useState(false)
@@ -12,7 +13,9 @@ const Sidebar = () => {
   }, [userLogged])
 
   const disconnectUser = () => {
-    //TO DO.
+    updateUserLoggedInUsers()
+    localStorage.removeItem('UserLogged')
+    setIsUserLogged(false)
   }
 
     return(
@@ -38,10 +41,19 @@ const Sidebar = () => {
                 <li>
                 <GiSpikedDragonHead className="icon"/>
                 <Link className='dragonhunter-f8f8ff' to="/profile">Profile</Link></li>
+                <li>
+                    <GiSpellBook className="icon"/>
+                    <Link className='dragonhunter-f8f8ff' to="/contact">Contact us!</Link>
+                </li>     
                 <hr/>
-                <li><Link onClick={disconnectUser()} className='dragonhunter-f8f8ff' to="/">Disconnect</Link></li>
+                <li><Link onClick={disconnectUser} className='dragonhunter-f8f8ff' to="/">Disconnect</Link></li>
               </>)
              : (<>
+                <li>
+                    <GiSpellBook className="icon"/>
+                    <Link className='dragonhunter-f8f8ff' to="/contact">Contact us!</Link>
+                </li> 
+                <hr/>
                 <li><Link className='dragonhunter-f8f8ff' to="/login">Login</Link></li>
                 <li><Link className='dragonhunter-f8f8ff' to="/register">Register</Link></li>     
               </>)}

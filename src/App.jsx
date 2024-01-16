@@ -1,25 +1,18 @@
 import RegisterForm  from './components/RegisterForm/RegisterForm'
 import LoginForm from './components/LoginForm/LoginForm'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import LandingPage from './components/LadingPage/LandingPage'
-import Data from './components/Data/Data'
-import SpellsPage from './components/SpellsPage/SpellsPage'
-import Profile from './components/Profile/Profile'
+import Data from './Data'
+import SpellsPage from './SpellsPage'
+import Profile from './Profile'
+import LandingPage from './LandingPage'
+import Contact from './Contact'
+import updateUserLoggedInUsers from './updateUserLoggedInUsers'
 
 function App() {
-  const updateUserLoggedInUsers = () => {
-    // Save information of UserLogged in Users.
-    const users = JSON.parse(localStorage.getItem('Users'))
-    const userLogged = JSON.parse(localStorage.getItem('UserLogged'))
-    if(users & userLogged){
-      const updatedUsers = users.map(user => (user.username === userLogged.username ? { ...user, ...userLogged } : user))
-      localStorage.setItem('Users', JSON.stringify(updatedUsers))
-    }
-}
 
-setInterval(() => {
+  setInterval(() => {
     updateUserLoggedInUsers()
-}, 60000)
+  }, 60000)
 
   return (
     <BrowserRouter>
@@ -37,6 +30,7 @@ setInterval(() => {
         <Route path="/spells/warlock" element={<SpellsPage endpoint="classes/warlock/spells"/>} />
         <Route path="/spells/wizard" element={<SpellsPage endpoint="classes/wizard/spells"/>} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/contact" element={<Contact/>} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
       </Routes>

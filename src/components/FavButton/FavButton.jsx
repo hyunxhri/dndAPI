@@ -20,27 +20,27 @@ const FavButton = ({ itemDetails }) => {
     localStorage.setItem('UserLogged', JSON.stringify(updatedUser))
   }
 
-  const addItemToUserLoggedFavs = () => {
+  const addItemToUserLoggedFavs = (item) => {
     if (userLogged) {
-        const updatedFavs = [...userLogged.favs, itemDetails]
+        const updatedFavs = [...userLogged.favs, item]
         updateLocalStorageUser(updatedFavs)
     } 
   }
 
-  const removeItemFromUserLoggedFavs = () => {
+  const removeItemFromUserLoggedFavs = (item) => {
     if (userLogged) {
-        const updatedFavs = userLogged.favs.filter((fav) => fav.index !== itemDetails.index)
+        const updatedFavs = userLogged.favs.filter((fav) => fav.index !== item.index)
         updateLocalStorageUser(updatedFavs)
     } 
   }
 
   const handleFavButton = () => {
     fav
-      ? (removeItemFromUserLoggedFavs(), setFav(false))
-      : (addItemToUserLoggedFavs(), setFav(true))
+      ? (removeItemFromUserLoggedFavs(itemDetails), setFav(false))
+      : (addItemToUserLoggedFavs(itemDetails), setFav(true))
   }
 
-  return <button className={fav ? "buttonIsFav" : ""}disabled={!userLogged} onClick={handleFavButton}>{fav ? 'Remove from favs' : 'Add to favs'}</button>
+  return <button className={fav ? "buttonIsFav" : ""} disabled={!userLogged} onClick={handleFavButton}>{fav ? 'Remove from favs' : 'Add to favs'}</button>
 }
 
 export default FavButton

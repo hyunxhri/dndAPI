@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './LoginForm.css'
 import { Link } from 'react-router-dom'
-import LandingPage from "../LadingPage/LandingPage"
+import LandingPage from '../../LandingPage'
 
 const LoginForm = () => {
 

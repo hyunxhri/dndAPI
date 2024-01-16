@@ -43,3 +43,13 @@ article::before {
 .info{
     letter-spacing: 1px;
 }
+
+p a{
+    color:#f8f8ff;
+}
+
+@media screen and (max-width: 400px) {
+    .landingPage {
+        flex-direction: column;
+    }
+}

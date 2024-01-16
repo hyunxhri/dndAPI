@@ -1,14 +1,12 @@
 // ClassRaces.js
 import React, { useState } from 'react'
-import Sidebar from '../Sidebar/Sidebar'
-import Search from '../Search/Search'
-import DataFetching from '../Fetch/DataFetching'
-import DataDetailsFetching from '../Fetch/DataDetailsFetching'
-import ClassModal from '../Modals/ClassModal'
-import RaceModal from '../Modals/RaceModal'
-import SpellModal from '../Modals/SpellModal'
-import "../Data/Data.css"
-
+import Sidebar from './components/Sidebar/Sidebar'
+import DataFetching from './components/Fetch/DataFetching'
+import DataDetailsFetching from './components/Fetch/DataDetailsFetching'
+import ClassModal from './components/Modals/ClassModal'
+import RaceModal from './components/Modals/RaceModal'
+import SpellModal from './components/Modals/SpellModal'
+import "./App.css"
 const Data = ({ endpoint }) => {
   const [data, setData] = useState([])
   const [images, setImages] = useState({})
