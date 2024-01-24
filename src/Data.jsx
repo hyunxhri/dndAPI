@@ -59,7 +59,7 @@ const Data = ({ endpoint }) => {
       {data.map((item) => (
       <div key={item.index} className={endpoint !== "spells" ? 'class-item' : 'class-item class-item-spells'} onClick={() => openModal(item)}>
         <h2 className='dragonhunter-f8f8ff'>{item.name}</h2>
-        {endpoint !== "spells" && <img src={images[item.name]} alt={`${item.name} image`} />}
+        <img src={images[item.name]} alt={`${item.name} image`} />
       </div>
       ))}
       </article>
